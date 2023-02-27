@@ -1,0 +1,1 @@
+Es un comando simple que permite a los jugadores lanzar una moneda para obtener un resultado de cara o cruz. Cuando un jugador ingresa el comando "/moneda", se lanza la moneda y se muestra el resultado en el chat del jugador que la lanzó, así como a los jugadores cercanos.
