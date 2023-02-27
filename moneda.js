@@ -1,3 +1,5 @@
+const DISTANCIA_MAXIMA = 10; // En metros
+
 mp.events.addCommand('moneda', (player) => {
   lanzarMoneda(player);
 });
@@ -9,7 +11,9 @@ function lanzarMoneda(player) {
   player.outputChatBox(`Te ha salido ${resultadoTexto}.`);
   
   // Enviar mensaje a jugadores cercanos
-  mp.players.forEachInStreamRange(player, (p) => {
-    p.outputChatBox(`[${player.name}] ha lanzado una moneda y le ha salido ${resultadoTexto}.`);
+  mp.players.forEach((p) => {
+    if (p.dimension === player.dimension && player.dist(p.position) <= DISTANCIA_MAXIMA) {
+      p.outputChatBox(`[${player.name}] ha lanzado una moneda y le ha salido ${resultadoTexto}.`);
+    }
   });
 }
